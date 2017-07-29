@@ -1,12 +1,12 @@
 function Snake() {
   this.x = 0;
   this.y = 0;
-  this.xSpeed = 10;
+  this.xSpeed = gameUnitSize;
   this.ySpeed = 0;
 
   this.dir = function(x, y){
-    this.xSpeed = x;
-    this.ySpeed = y;
+    this.xSpeed = x * gameUnitSize;
+    this.ySpeed = y * gameUnitSize;
   }
 
   this.update = function () {
@@ -19,6 +19,6 @@ function Snake() {
 
   this.show = function() {
     ctx.fillStyle = 'red';
-    ctx.fillRect(this.x, this.y, snakeRectSize, snakeRectSize);
+    ctx.fillRect(this.x, this.y, gameUnitSize, gameUnitSize);
   }
 }

@@ -4,5 +4,5 @@ function drawCanvasBG() {
 }
 
 function limitPositionInCanvasBound(position, axisLength) {
-  return Math.max(Math.min(position, (axisLength - snakeRectSize)), 0)
+  return Math.max(Math.min(position, (axisLength - gameUnitSize)), 0)
 }
