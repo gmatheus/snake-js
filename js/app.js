@@ -1,8 +1,3 @@
-function drawCanvasBG() {
-  ctx.fillStyle = "blue";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
-
 function setup() {
   drawCanvasBG()
   snake = new Snake();

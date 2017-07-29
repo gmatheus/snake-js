@@ -10,12 +10,15 @@ function Snake() {
   }
 
   this.update = function () {
-    this.x = this.x + this.xSpeed;
-    this.y = this.y + this.ySpeed;
+    var newPosX = this.x + this.xSpeed
+    var newPosY = this.y + this.ySpeed
+
+    this.x = limitPositionInCanvasBound(newPosX, canvas.width)
+    this.y = limitPositionInCanvasBound(newPosY, canvas.height)
   }
 
   this.show = function() {
     ctx.fillStyle = 'red';
-    ctx.fillRect(this.x, this.y, snakeSize, snakeSize);
+    ctx.fillRect(this.x, this.y, snakeRectSize, snakeRectSize);
   }
 }
