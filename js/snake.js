@@ -9,6 +9,10 @@ function Snake() {
     this.ySpeed = y * gameUnitSize;
   }
 
+  this.eat = function(food) {
+    return this.x === food.x && this.y === food.y
+  }
+
   this.update = function () {
     var newPosX = this.x + this.xSpeed
     var newPosY = this.y + this.ySpeed

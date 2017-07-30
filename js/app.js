@@ -7,10 +7,13 @@ function setup() {
 function draw() {
   drawCanvasBG()
 
+  if (snake.eat(food)) {
+    food.update()
+  }
+  food.show()
+
   snake.update()
   snake.show()
-
-  food.show()
 }
 
 function keyDown(e) {
