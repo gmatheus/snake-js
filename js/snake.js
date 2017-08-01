@@ -8,6 +8,14 @@ function Snake() {
   // Adds a new position in tail arrray
   this.tail.push({x: this.x, y: this.y})
 
+  this.hitItself = function() {
+    var hitPosition = this.tail.filter((function(p) {
+      return p.x === this.x && p.y === this.y
+    }).bind(this))
+
+    return !!hitPosition.length
+  }
+
   this.dir = function(x, y){
     this.xSpeed = x * gameUnitSize;
     this.ySpeed = y * gameUnitSize;
@@ -23,8 +31,10 @@ function Snake() {
   }
 
   this.die = function() {
-    return !isInCanvasBound(this.x, canvas.width) ||
+    var hitBoundaries = !isInCanvasBound(this.x, canvas.width) ||
         !isInCanvasBound(this.y, canvas.height)
+
+    return hitBoundaries || this.hitItself()
   }
 
   this.update = function () {
