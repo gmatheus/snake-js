@@ -22,17 +22,19 @@ function Snake() {
     return false
   }
 
+  this.die = function() {
+    return !isInCanvasBound(this.x, canvas.width) ||
+        !isInCanvasBound(this.y, canvas.height)
+  }
+
   this.update = function () {
     // Adds a new position in tail arrray
     this.tail.push({x: this.x, y: this.y})
     // Removes last unit of tail (first element in array)
     this.tail.shift()
 
-    var newPosX = this.x + this.xSpeed
-    var newPosY = this.y + this.ySpeed
-
-    this.x = limitPositionInCanvasBound(newPosX, canvas.width)
-    this.y = limitPositionInCanvasBound(newPosY, canvas.height)
+    this.x = this.x + this.xSpeed
+    this.y = this.y + this.ySpeed
   }
 
   this.show = function() {

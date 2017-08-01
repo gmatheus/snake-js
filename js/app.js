@@ -7,6 +7,11 @@ function setup() {
 function draw() {
   drawCanvasBG()
 
+  if (snake.die()) {
+    // Runs setup() againto reset game
+    setup()
+  }
+
   if (snake.eat(food)) {
     food.update()
   }
