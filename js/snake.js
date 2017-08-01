@@ -5,6 +5,9 @@ function Snake() {
   this.ySpeed = 0
   this.tail = []
 
+  // Adds a new position in tail arrray
+  this.tail.push({x: this.x, y: this.y})
+
   this.dir = function(x, y){
     this.xSpeed = x * gameUnitSize;
     this.ySpeed = y * gameUnitSize;
