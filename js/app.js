@@ -23,16 +23,16 @@ function draw() {
 
 function keyDown(e) {
   switch (e.keyCode) {
-    case 37:
+    case 37: // LEFT
       snake.dir(-1, 0)
       break;
-    case 38:
+    case 38: // UP
       snake.dir(0, -1)
       break;
-    case 39:
+    case 39: // RIGHT
       snake.dir(1, 0)
       break;
-    case 40 :
+    case 40: // DOWN
       snake.dir(0, 1)
       break;
     default:

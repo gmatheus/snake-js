@@ -17,8 +17,15 @@ function Snake() {
   }
 
   this.dir = function(x, y){
-    this.xSpeed = x * gameUnitSize;
-    this.ySpeed = y * gameUnitSize;
+    // Check if new direction isn't in the same axis
+    var shouldChangeDirection =
+      Math.abs(this.xSpeed / gameUnitSize) !== Math.abs(x) ||
+      Math.abs(this.ySpeed / gameUnitSize) !== Math.abs(y)
+
+    if (shouldChangeDirection) {
+      this.xSpeed = x * gameUnitSize;
+      this.ySpeed = y * gameUnitSize;
+    }
   }
 
   this.eat = function(food) {
