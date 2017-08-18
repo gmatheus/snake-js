@@ -20,6 +20,13 @@ body{
 
 .menu .title{
   font-weight: 300;
+  color: #1e94a2;
+}
+
+.menu .message{
+  display: block;
+  margin: 20px 0;
+  color: #909090;
 }
 
 .menu .start-button{

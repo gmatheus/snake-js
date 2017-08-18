@@ -1,15 +1,8 @@
-function setup() {
-  drawCanvasBG()
-  snake = new Snake()
-  food = new Food()
-}
-
 function draw() {
   drawCanvasBG()
 
   if (snake.die()) {
-    // Runs setup() again to reset game
-    setup()
+    endGame('You died :(')
   }
 
   if (snake.eat(food)) {
@@ -40,13 +33,22 @@ function keyDown(e) {
   }
 }
 
-function init(){
-  setup()
-  document.addEventListener('keydown', keyDown)
-  setInterval(draw, 80)
+function initGame(){
+  menu.classList.add('_hidden')
+
+  drawCanvasBG()
+  snake = new Snake()
+  food = new Food()
+  gameIntervalLoop = setInterval(draw, 80)
 }
 
-startButton.addEventListener('click', function () {
-  menu.classList.add('_hidden')
-  init()
-})
+function endGame(message) {
+  clearInterval(gameIntervalLoop)
+
+  messageSpan.innerHTML = message
+  messageSpan.classList.remove('_hidden')
+  menu.classList.remove('_hidden')
+}
+
+startButton.addEventListener('click', initGame)
+document.addEventListener('keydown', keyDown)

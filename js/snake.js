@@ -6,7 +6,10 @@ function Snake() {
   this.tail = []
 
   // Adds a new position in tail arrray
-  this.tail.push({x: this.x, y: this.y})
+  this.tail.push({
+    x: (this.x - gameUnitSize),
+    y: this.y
+  })
 
   this.hitItself = function() {
     var hitPosition = this.tail.filter((function(p) {
