@@ -8,7 +8,7 @@ function draw() {
   drawCanvasBG()
 
   if (snake.die()) {
-    // Runs setup() againto reset game
+    // Runs setup() again to reset game
     setup()
   }
 
@@ -46,4 +46,7 @@ function init(){
   setInterval(draw, 80)
 }
 
-init()
+startButton.addEventListener('click', function () {
+  menu.classList.add('_hidden')
+  init()
+})
